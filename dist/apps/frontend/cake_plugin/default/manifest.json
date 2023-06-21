@@ -1,0 +1,25 @@
+{
+  "name": "Cak3",
+  "description": "Extension for Cak3 marketplace.",
+  "version": "1.1",
+  "manifest_version": 3,
+  "permissions": ["storage", "background", "tabs", "scripting", "activeTab"],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "css":["plugin/plugin_styles/youtubeButton.css"],
+      "js": ["plugin/content_scripts/injectedScriptYoutube.js"]
+    },
+    {
+      "matches": ["https://twitter.com/*"],
+      "css": ["plugin/plugin_styles/twitterButton.css"],
+      "js": ["plugin/content_scripts/injectedScriptTwitter.js"]
+    }
+  ]
+}
